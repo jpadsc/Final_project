@@ -27,7 +27,19 @@
         </label>
     </div>
     <svg id="Matress-graph"></svg>
-    <p>Exploring the graph above you should be able to see the areas of the body that carry the weight during different sleeping positions. 
-        In the default image we can see how most of the weight is carried by the left sholder</p>
+    <p>So far, I've extracted the data for one subject for all supine positions and created the matress mapping that you are currently seeing
+        I also had to implemented the selector for all these 10 different positions, plus I took the time to explore the data, in order to 
+        understand the best default position (#2 not #1).All the data came as matrices in txt files so I had to convert those into js objects
+        then I made a grid with the same dimessions of the matrices and mapped each square to a matrix entry, then the hardest part was finding
+        how to make it so that the numbers where mapped to a color scale, I am still unsure about the current color scale but it is the best one 
+        I've tried so far.
+
+        Now in terms of what I am yet to do I plan to add other subjects to the graph and instead of filtering them by name (like subject 1), 
+        I'll do it by weight so that the reader can easily compare different weights and also choose someone with a weight closer to theirs. 
+       I think the hardest part of this is going to be working with so much data and finding a way to implement it on my graph without having 
+       to explicitly read each file, Additionally I am thinking of adding an additional mapping that is not of the matress preassure but of the 
+       siluete of a human higlinting the areas that are carrying the weight , I do not know how to approach this idea but it would be super cool 
+       so if I do it it woudl be the hardest thing (I think).
+    </p>
 </body>
 </html>
