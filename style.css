@@ -17,6 +17,7 @@ body {
   
   /* Make it so the all h3 with class "chart_legend"  are not bold and are smaller*/
     h3.chart_legend {
+        font-family: system-ui;
         font-weight: normal;
-        font-size: 97%;
+        font-size: 130%;
     }
