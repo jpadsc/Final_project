@@ -17,6 +17,8 @@ const S1B6 = await readMatrix('data/experiment-ii/S1/Sponge_Mat/Matrix_Sponge_B6
 const S1B5 = await readMatrix('data/experiment-ii/S1/Sponge_Mat/Matrix_Sponge_B5.txt');
 const S1B4 = await readMatrix('data/experiment-ii/S1/Sponge_Mat/Matrix_Sponge_B4.txt');
 const S1B3 = await readMatrix('data/experiment-ii/S1/Sponge_Mat/Matrix_Sponge_B3.txt');
+
+
 console.log(S1B2);
 
 var currentposition = S1B2;
@@ -24,7 +26,7 @@ var currentposition = S1B2;
 const svg = d3.select('#Matress-graph');
 
 
-const cellSize = 8.577;
+const cellSize = 9;
 const rows = S1B2.length - 1;
 console.log(rows);
 const cols = S1B2[0].length;
