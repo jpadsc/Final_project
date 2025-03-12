@@ -10,22 +10,39 @@
 <body>
     <h1>Good Night or Good Fight? Your Sleep Posture Decides</h1>
     <h3 class="chart_legend">Mapping of the distribution of preassure while laying in different possitions</h3>
-    <div id="Posture-changer">
-        <label for="current_posture">Choose a posture:
-            <select id="current_posture" name="posture">
-                <option value='S1B2'>Posture 2</option> 
-                <option value='S1B1'>Posture 1</option>
-                <option value="S1B3">Posture 3</option>
-                <option value="S1B4">Posture 4</option>
-                <option value="S1B5">Posture 5</option>
-                <option value="S1B6">Posture 6</option>
-                <option value="S1B7">Posture 7</option>
-                <option value="S1B8">Posture 8</option>
-                <option value="S1B9">Posture 9</option>
-                <option value="S1B10">Posture 10</option>
-            </select>
-        </label>
-    </div>
+    <div id="interaction block">
+        <div id="Posture-changer">
+            <label for="current_posture">Choose a posture:
+                <select id="current_posture" name="posture">
+                    <option value='S1B2'>Posture 2</option> 
+                    <option value='S1B1'>Posture 1</option>
+                    <option value="S1B3">Posture 3</option>
+                    <option value="S1B4">Posture 4</option>
+                    <option value="S1B5">Posture 5</option>
+                    <option value="S1B6">Posture 6</option>
+                    <option value="S1B7">Posture 7</option>
+                    <option value="S1B8">Posture 8</option>
+                    <option value="S1B9">Posture 9</option>
+                    <option value="S1B10">Posture 10</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="wieght-selector">
+            <label for="current_weight">Choose desired weight:
+                <select id="current_weight" name="weight">
+                    <option value=87>87kg</option>
+                    <option value=85>85kg</option>
+                    <option value=100>100kg</option>
+                    <option value=66>66kg</option>
+                    <option value=96>96kg</option>
+                    <option value=63>63kg</option>
+                    <option value=74>74kg</option>
+                    <option value=79>79kg</option>
+                </select>
+            </label>
+        </div>
+    </div>  
     <svg id="Matress-graph"></svg>
     <p>So far, I've extracted the data for one subject for all supine positions and created the matress mapping that you are currently seeing
         I also had to implemented the selector for all these 10 different positions, plus I took the time to explore the data, in order to 

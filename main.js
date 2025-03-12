@@ -22,6 +22,40 @@ const S1B3 = await readMatrix('data/experiment-ii/S1/Sponge_Mat/Matrix_Sponge_B3
 console.log(S1B2);
 
 var currentposition = S1B2;
+var current_subject = 1;
+
+const subjects = {};
+for (let i =0; i<8 ; i++){
+    subjects[i+1] = {
+        back: {
+            B2: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B2.txt`),
+            B1: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B1.txt`),
+            B10: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B10.txt`),
+            B8: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B8.txt`),
+            B9: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B9.txt`),
+            B7: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B7.txt`),
+            B6: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B6.txt`),
+            B5: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B5.txt`),
+            B4: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B4.txt`),
+            B3: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_B3.txt`)
+
+        },
+
+        left:{
+            D1: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_D1.txt`),
+            D2: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_D2.txt`),
+            D3: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_D3.txt`),
+
+        },
+        right: {
+            C1: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_C1.txt`),
+            C2: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_C2.txt`),
+            C3: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_C3.txt`),
+        }
+    };
+}
+
+console.log(subjects);
 
 const svg = d3.select('#Matress-graph');
 
