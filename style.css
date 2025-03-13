@@ -21,3 +21,51 @@ body {
         font-weight: normal;
         font-size: 130%;
     }
+    
+  div.Visualization{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid;
+    border-color: rgb(202, 202, 202);
+    border-radius: 4%;
+    width: 77%;
+    justify-content: space-between;  
+    background-color: oklch(88.16% 0 294.35);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  div#interaction-block{
+    display: block;
+    padding: 2%;
+
+    
+  }
+
+  button{
+    font-size: 100%;
+    width: 1.7cm;
+    font-family: system-ui;
+    padding: 2%;
+    margin: 1%;
+    border: 1px solid;
+    border-radius: 0.37em;
+    background-color: rgb(233, 233, 233);
+    color: black;
+    cursor: pointer;
+  }
+  svg{
+    display: block;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  div#orientation-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 7%;
+  }
+  select{
+    font-size: 87%;
+  }

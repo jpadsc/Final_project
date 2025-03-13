@@ -10,7 +10,8 @@
 <body>
     <h1>Good Night or Good Fight? Your Sleep Posture Decides</h1>
     <h3 class="chart_legend">Mapping of the distribution of preassure while laying in different possitions</h3>
-    <div id="interaction block">
+    <div class="Visualization">
+    <div id="interaction-block">
         <div id="wieght-selector">
             <label for="current_weight">Choose desired weight:
                 <select id="current_weight" name="weight">
@@ -48,8 +49,9 @@
         </div>
 
         
-    </div>  
+    </div> 
     <svg id="Matress-graph"></svg>
+    </div>
     <p>So far, I've extracted the data for one subject for all supine positions and created the matress mapping that you are currently seeing
         I also had to implemented the selector for all these 10 different positions, plus I took the time to explore the data, in order to 
         understand the best default position (#2 not #1).All the data came as matrices in txt files so I had to convert those into js objects
