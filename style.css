@@ -74,3 +74,23 @@ body {
   select{
     font-size: 87%;
   }
+  div.top-pov{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30%;
+    align-items: center;
+  }
+
+  p{
+    display: block;
+    font-size: 120%;
+    width: 90%;
+  }
+
+  div#pillow-no-pillow{
+    width: 90%;
+
+  }
+  h3#pillow-no-pillow{
+    margin-right: 10%;
+  }

@@ -9,7 +9,31 @@
 </head>
 <body>
     <h1>Mission Impossible: Finding a Sleeping Position That Doesn’t Hurt</h1>
-    
+    <h4>DSC 106 final project by Javier Ponce</h4>
+    <p>
+        Have you ever woken up feeling worse than before you went to bed? 
+        If you said yes, you might have a bad sleeping posture. 
+        In the following project, I use visualizations to explain key ideas 
+        of how to sleep better while trying to find the overall best sleeping position. 
+    </p>
+    <h3>Bad news for stomach sleepers</h3>
+    <p>If you are like me and enjoy sleeping in your stomach, then I have bad news for you. 
+        The conductors of the experiment I pulled my data from decided to not include data 
+        for subjects sleeping on their stomachs. But even worse, stomach sleeping is widely 
+        considered to be the worst sleeping position so it is reasonable to ignore it when 
+        trying to find the best sleeping position. If you are a stomach sleeper, 
+        I hope this project encourages you to try some new sleeping positions, just 
+        like it encouraged me. 
+    </p>
+    <h3>First visualization</h3>
+    <p>
+        In the visualization below we explore how different sleeping positions 
+        affect the distribution of pressure over the body of the subjects. 
+        The visualization allows you to navigate between 8 subjects and 16 sleeping positions, 
+        once a configuration is chosen you see the pressure distributed over the mattress 
+        (and the subjects body), highliting with blue the points with the highest pressure.
+    </p>
+    <br>
     <div class="Visualization">
     <!-- <h3 class="chart_legend">Mapping of the distribution of preassure while laying in different possitions</h3> -->
     <div class="interaction-block">
@@ -48,12 +72,45 @@
                 </select>
             </label> -->
         </div>
+        <!-- <div class="top-pov">
+            <label for="top-pov">Top view of the subject
+            </label>
+            
+        </div> -->
 
         
     </div> 
     <svg id="Matress-graph"></svg>
     </div>
+    <br>
+    <h3>Takeaways</h3>
+    <p>
+        While exploring this visualization, you should be able to notice 
+        that all individuals registered less pressure when they were centered 
+        compared to when they were near the end of the bed or with a diagonal 
+        orientation. Another easy-to-infer finding is that heavier subjects 
+        do not necessarily exert more pressure. In reality, what matters the 
+        most is the comparison between their mass (weight) and the area of 
+        their side touching the mattress. For the same reason, we see a lot 
+        more blue when subjects sleep sideways since it reduces their area 
+        touching the mattress by half.
+    </p>
+
     <h2>Pillow talk: Let's talk about pillows</h2>
+    <p>
+        Do the findings from the first visualization imply that sleeping on your side is bad? 
+        Not at all. Side sleeping has many benefits. 
+        The only thing that our previous visualization showed is that side sleeping is worse 
+        for distributing your weight around your body. Thankfully for us, pillows exist.
+    </p>
+    <h3>Second visualization</h3>
+    <p>
+        In this visualization, we explore how using supporting pillows can improve side sleeping.
+         The visualization uses an interactive interface similar to the one from the first visualization. 
+         The main difference being that we only consider side sleeping and we select between different 
+         pillow configurations rather than sleeping positions.
+        </p>
+    <br>
     <div class="Visualization" id="Pillows">
         <div class="interaction-block">
             <div id="wieght-selector-pillow">
@@ -78,7 +135,24 @@
         </div>
         <svg id="Pillow-graph"></svg>
     </div>
+    <br>
+    <h3>Takeaways</h3>
+    <p>
+        The main takeaway is that pillows and sleeping wedges can significatlly improve side sleeping and what better
+        way to show this than a visualization.
+    </p>
+    <div class="Visualization" id="pillow-no-pillow">
+        <h3 id="pillow-no-pillow">Subject 2 sleeping on their right side with and without a pillow</h3>
+        <svg id="pillowc"></svg>
+        <svg id="nopillow"></svg>
+    </div>
     <h2>From the inclined plane to an inclined bed</h2>
+    <p>
+        Everyone who has taken a physics class knows that inclination 
+        matters when considering the force between an object and the 
+        inclined surface. Then, Could we use inclination to improve sleeping?
+    </p>
+    <br>
     <div class="Visualization" id="inclined">
         <div class="interaction-block">
             <div id="wieght-selector-inclined">
@@ -111,6 +185,13 @@
         </div>
         <svg id="inclined-graph"></svg>
     </div>
+    <br>
+    <h3>Takeaways</h3>
+    <p>
+        While the inclination is helpful in multiple situations, like trying to stimulate blood circulation, 
+        this visualization shows that inclination is not as helpful when trying to distribute pressure over the mattress. In fact, 
+        too much inclination seems to be bad for pressure distribution, showing significantly more blue for each subject. 
+    </p>
     <!-- <p>So far, I've extracted the data for one subject for all supine positions and created the matress mapping that you are currently seeing
         I also had to implemented the selector for all these 10 different positions, plus I took the time to explore the data, in order to 
         understand the best default position (#2 not #1).All the data came as matrices in txt files so I had to convert those into js objects

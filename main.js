@@ -80,6 +80,15 @@ for (let i =0; i<8 ; i++){
         }
     };
 }
+const pillows = {
+    Left1: "1 wedge",
+    Left2: "2 wedges",
+    Left3: "1 pillow",
+    Right1: "1 wedge",
+    Right2: "2 wedges",
+    Right3: "1 pillow"
+};
+
 
 console.log(pillow);
 
@@ -267,7 +276,7 @@ d3.select('#left-pillow').on('click', function() {
         const left_pillow = d3.select('#Pillow-Posture-changer').append('select').attr('id', 'pillow-posture');
         left_pillow.selectAll('option').data(Object.keys(pillow[current_subject_pillow].left)).enter().append('option')
             .attr('value', d => d)
-            .text(d => d);
+            .text(d => d + ' ('+  pillows[d]+")");
         d3.select('#pillow-posture').on('change', function() {
             current_posture_pillow = this.value;
             currentposition_pillow = pillow[current_subject_pillow].left[current_posture_pillow];
@@ -279,7 +288,7 @@ d3.select('#left-pillow').on('click', function() {
         const left_pillow = d3.select('#Pillow-Posture-changer').append('select').attr('id', 'pillow-posture');
         left_pillow.selectAll('option').data(Object.keys(pillow[current_subject_pillow].left)).enter().append('option')
             .attr('value', d => d)
-            .text(d => d);
+            .text(d => d + ' ('+  pillows[d]+")");
         d3.select('#pillow-posture').on('change', function() {
             current_posture_pillow = this.value;
             currentposition_pillow = pillow[current_subject_pillow].left[current_posture_pillow];
@@ -297,7 +306,7 @@ d3.select('#right-pillow').on('click', function() {
         const right_pillow = d3.select('#Pillow-Posture-changer').append('select').attr('id', 'pillow-posture');
         right_pillow.selectAll('option').data(Object.keys(pillow[current_subject_pillow].right)).enter().append('option')
             .attr('value', d => d)
-            .text(d => d);
+            .text(d => d + ' ('+  pillows[d]+")");
         d3.select('#pillow-posture').on('change', function() {
             current_posture_pillow = this.value;
             currentposition_pillow = pillow[current_subject_pillow].right[current_posture_pillow];
@@ -309,7 +318,7 @@ d3.select('#right-pillow').on('click', function() {
         const right_pillow = d3.select('#Pillow-Posture-changer').append('select').attr('id', 'pillow-posture');
         right_pillow.selectAll('option').data(Object.keys(pillow[current_subject_pillow].right)).enter().append('option')
             .attr('value', d => d)
-            .text(d => d);
+            .text(d => d + ' ('+  pillows[d]+")");
         d3.select('#pillow-posture').on('change', function() {
             current_posture_pillow = this.value;
             currentposition_pillow = pillow[current_subject_pillow].right[current_posture_pillow];
@@ -362,3 +371,26 @@ d3.select('#current-inclination').on('change', function() {
     inclined_position = inclined[current_inclined_subject][current_inclination];
     svg_inclined.selectAll('rect').data(inclined_position.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
 });
+
+
+const svg_pillowc = d3.select('#pillowc');
+
+svg_pillowc.attr('width', cols * cellSize).attr('height', rows * cellSize);
+svg_pillowc.selectAll('rect').data(pillow[2].right["Right3"].flat()).enter().append('rect')
+    .attr('x', (d, i) => (i % cols) * cellSize)
+    .attr('y', (d, i) => (rows - Math.floor(i / cols) - 1) * cellSize)
+    .attr('width', cellSize)
+    .attr('height', cellSize)
+    .attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+
+
+const svg_nopillow = d3.select('#nopillow');
+
+svg_nopillow.attr('width', cols * cellSize).attr('height', rows * cellSize);
+svg_nopillow.selectAll('rect').data(subjects[2].right["Right1"].flat()).enter().append('rect')
+    .attr('x', (d, i) => (i % cols) * cellSize)
+    .attr('y', (d, i) => (rows - Math.floor(i / cols) - 1) * cellSize)
+    .attr('width', cellSize)
+    .attr('height', cellSize)
+    .attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+
