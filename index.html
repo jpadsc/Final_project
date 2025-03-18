@@ -9,9 +9,10 @@
 </head>
 <body>
     <h1>Good Night or Good Fight? Your Sleep Posture Decides</h1>
-    <h3 class="chart_legend">Mapping of the distribution of preassure while laying in different possitions</h3>
+    
     <div class="Visualization">
-    <div id="interaction-block">
+    <!-- <h3 class="chart_legend">Mapping of the distribution of preassure while laying in different possitions</h3> -->
+    <div class="interaction-block">
         <div id="wieght-selector">
             <label for="current_weight">Choose desired weight:
                 <select id="current_weight" name="weight">
@@ -26,7 +27,7 @@
                 </select>
             </label>
         </div>
-        <div id="orientation-buttons">
+        <div class="orientation-buttons">
             <button id="supine">Supine</button>
             <button id="left">Left</button>
             <button id="right">Right</button>
@@ -52,7 +53,65 @@
     </div> 
     <svg id="Matress-graph"></svg>
     </div>
-    <p>So far, I've extracted the data for one subject for all supine positions and created the matress mapping that you are currently seeing
+    <h2>Pillow talk: Let's talk about pillows</h2>
+    <div class="Visualization" id="Pillows">
+        <div class="interaction-block">
+            <div id="wieght-selector-pillow">
+                <label for="current_weight_pillow">Choose desired weight:
+                    <select id="current_weight_pillow" name="weight">
+                        <option value=87>87kg</option>
+                        <option value=85>85kg</option>
+                        <option value=100>100kg</option>
+                        <option value=66>66kg</option>
+                        <option value=96>96kg</option>
+                        <option value=63>63kg</option>
+                        <option value=74>74kg</option>
+                        <option value=79>79kg</option>
+                    </select>
+                </label>
+            </div>
+            <div class="orientation-buttons">
+                <button id="left-pillow">Left</button>
+                <button id="right-pillow">Right</button>
+            </div>
+            <div id="Pillow-Posture-changer"></div>
+        </div>
+        <svg id="Pillow-graph"></svg>
+    </div>
+    <h2>From the inclined plane to an inclined bed</h2>
+    <div class="Visualization" id="inclined">
+        <div class="interaction-block">
+            <div id="wieght-selector-inclined">
+                <label for="wieght-selector-inclined">Choose desired weight:
+                    <select id="current_weight_inclined" name="weight">
+                        <option value=87>87kg</option>
+                        <option value=85>85kg</option>
+                        <option value=100>100kg</option>
+                        <option value=66>66kg</option>
+                        <option value=96>96kg</option>
+                        <option value=63>63kg</option>
+                        <option value=74>74kg</option>
+                        <option value=79>79kg</option>
+                    </select>
+                </label>
+            </div>
+            <div id="inclination-level">
+                <label for="inclination-level">Choose level of inclination:
+                    <select name="inclination" id="current-inclination">
+                        <option value="level1">Level 1 (no inclination)</option>
+                        <option value="level2">Level 2 (10 degrees)</option>
+                        <option value="level3">Level 3 (20 degrees)</option>
+                        <option value="level4">Level 4 (30 degrees)</option>
+                        <option value="level5">Level 5 (40 degrees)</option>
+                        <option value="level6">Level 6 (50 degrees)</option>
+                        <option value="level7">Level 7 (60 degrees)</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <svg id="inclined-graph"></svg>
+    </div>
+    <!-- <p>So far, I've extracted the data for one subject for all supine positions and created the matress mapping that you are currently seeing
         I also had to implemented the selector for all these 10 different positions, plus I took the time to explore the data, in order to 
         understand the best default position (#2 not #1).All the data came as matrices in txt files so I had to convert those into js objects
         then I made a grid with the same dimessions of the matrices and mapped each square to a matrix entry, then the hardest part was finding
@@ -65,6 +124,6 @@
        to explicitly read each file, Additionally I am thinking of adding an additional mapping that is not of the matress preassure but of the 
        siluete of a human higlinting the areas that are carrying the weight , I do not know how to approach this idea but it would be super cool 
        so if I do it it woudl be the hardest thing (I think).
-    </p>
+    </p> -->
 </body>
 </html>

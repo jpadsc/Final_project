@@ -14,6 +14,11 @@ body {
     text-wrap: balance;
     font-size: 277%;
   }
+  h2{
+    line-height: 1.1;
+    text-wrap: balance;
+    font-size: 200%;
+  }
   
   /* Make it so the all h3 with class "chart_legend"  are not bold and are smaller*/
     h3.chart_legend {
@@ -25,16 +30,16 @@ body {
   div.Visualization{
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid;
-    border-color: rgb(202, 202, 202);
-    border-radius: 4%;
-    width: 77%;
+    border-radius: 0%;
+    width: 73.7%;
     justify-content: space-between;  
-    background-color: oklch(88.16% 0 294.35);
+    background-color: oklch(96.83% 0 259.28);
+    border-radius: 1.7%;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-  div#interaction-block{
+  div.interaction-block{
     display: block;
     padding: 2%;
 
@@ -48,8 +53,8 @@ body {
     padding: 2%;
     margin: 1%;
     border: 1px solid;
-    border-radius: 0.37em;
-    background-color: rgb(233, 233, 233);
+    border-radius: 0.27em;
+    background-color: white;
     color: black;
     cursor: pointer;
   }
@@ -60,7 +65,7 @@ body {
     padding-left: 10%;
     padding-right: 10%;
   }
-  div#orientation-buttons{
+  div.orientation-buttons{
     display: flex;
     justify-content: space-between;
     width: 100%;

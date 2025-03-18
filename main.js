@@ -63,12 +63,36 @@ for (let i =0; i<8 ; i++){
     };
 }
 
-console.log(subjects);
+const pillow = {};
+for (let i =0; i<8 ; i++){
+    pillow[i+1] = {
+
+        left:{            
+            Left1: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_E3.txt`),
+            Left2: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_E4.txt`),
+            Left3: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_E6.txt`),
+
+        },
+        right: {
+            Right1: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_E1.txt`),
+            Right2: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_E2.txt`),
+            Right3: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_E5.txt`),
+        }
+    };
+}
+
+console.log(pillow);
+
 
 var current_orintation = 'back';
 var current_posture = 'Supine1';
 var current_subject = 1;
 var currentposition = subjects[current_subject][current_orintation][current_posture];
+
+var current_orintation_pillow = 'left';
+var current_posture_pillow = 'Left1';
+var current_subject_pillow = 1;
+var currentposition_pillow = pillow[current_subject_pillow][current_orintation_pillow][current_posture_pillow];
 
 
 const svg = d3.select('#Matress-graph');
@@ -212,4 +236,129 @@ d3.select('#current_weight').on('change', function() {
     current_subject = weights[this.value];
     currentposition = subjects[current_subject][current_orintation][current_posture];
     svg.selectAll('rect').data(currentposition.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+});
+
+
+const svg_pillow = d3.select('#Pillow-graph');
+
+svg_pillow.attr('width', cols * cellSize).attr('height', rows * cellSize);
+svg_pillow.selectAll('rect').data(currentposition_pillow.flat()).enter().append('rect')
+    .attr('x', (d, i) => (i % cols) * cellSize)
+    .attr('y', (d, i) => (rows - Math.floor(i / cols) - 1) * cellSize)
+    .attr('width', cellSize)
+    .attr('height', cellSize)
+    .attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+
+d3.select('#current_weight_pillow').on('change', function() {
+    current_subject_pillow = weights[this.value];
+    currentposition_pillow = pillow[current_subject_pillow][current_orintation_pillow][current_posture_pillow];
+    svg_pillow.selectAll('rect').data(currentposition_pillow.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+});
+
+let pillow_selectCreated = false;
+
+
+d3.select('#left-pillow').on('click', function() {
+    current_orintation_pillow = 'left';
+    current_posture_pillow = 'Left1';
+    currentposition_pillow = pillow[current_subject_pillow].left[current_posture_pillow];
+    svg_pillow.selectAll('rect').data(currentposition_pillow.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+    if (!pillow_selectCreated) {
+        const left_pillow = d3.select('#Pillow-Posture-changer').append('select').attr('id', 'pillow-posture');
+        left_pillow.selectAll('option').data(Object.keys(pillow[current_subject_pillow].left)).enter().append('option')
+            .attr('value', d => d)
+            .text(d => d);
+        d3.select('#pillow-posture').on('change', function() {
+            current_posture_pillow = this.value;
+            currentposition_pillow = pillow[current_subject_pillow].left[current_posture_pillow];
+            svg_pillow.selectAll('rect').data(currentposition_pillow.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+        });
+        pillow_selectCreated = true;
+    }else{
+        d3.select('#pillow-posture').remove();
+        const left_pillow = d3.select('#Pillow-Posture-changer').append('select').attr('id', 'pillow-posture');
+        left_pillow.selectAll('option').data(Object.keys(pillow[current_subject_pillow].left)).enter().append('option')
+            .attr('value', d => d)
+            .text(d => d);
+        d3.select('#pillow-posture').on('change', function() {
+            current_posture_pillow = this.value;
+            currentposition_pillow = pillow[current_subject_pillow].left[current_posture_pillow];
+            svg_pillow.selectAll('rect').data(currentposition_pillow.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+        });
+    }
+});
+
+d3.select('#right-pillow').on('click', function() {
+    current_orintation_pillow = 'right';
+    current_posture_pillow = 'Right1';
+    currentposition_pillow = pillow[current_subject_pillow].right[current_posture_pillow];
+    svg_pillow.selectAll('rect').data(currentposition_pillow.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+    if (!pillow_selectCreated) {
+        const right_pillow = d3.select('#Pillow-Posture-changer').append('select').attr('id', 'pillow-posture');
+        right_pillow.selectAll('option').data(Object.keys(pillow[current_subject_pillow].right)).enter().append('option')
+            .attr('value', d => d)
+            .text(d => d);
+        d3.select('#pillow-posture').on('change', function() {
+            current_posture_pillow = this.value;
+            currentposition_pillow = pillow[current_subject_pillow].right[current_posture_pillow];
+            svg_pillow.selectAll('rect').data(currentposition_pillow.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+        });
+        pillow_selectCreated = true;
+    }else{
+        d3.select('#pillow-posture').remove();
+        const right_pillow = d3.select('#Pillow-Posture-changer').append('select').attr('id', 'pillow-posture');
+        right_pillow.selectAll('option').data(Object.keys(pillow[current_subject_pillow].right)).enter().append('option')
+            .attr('value', d => d)
+            .text(d => d);
+        d3.select('#pillow-posture').on('change', function() {
+            current_posture_pillow = this.value;
+            currentposition_pillow = pillow[current_subject_pillow].right[current_posture_pillow];
+            svg_pillow.selectAll('rect').data(currentposition_pillow.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+        });
+    }
+});
+
+
+const inclined = {};
+for (let i =0; i<8 ; i++){
+    inclined[i+1] = {
+
+        level1: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_F1.txt`),
+        level2: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_F2.txt`),
+        level3: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_F3.txt`),
+        level4: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_F4.txt`),
+        level5: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_F5.txt`),
+        level6: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_F6.txt`),
+        level7: await readMatrix(`data/experiment-ii/S${i+1}/Sponge_Mat/Matrix_Sponge_F7.txt`),
+    };
+}
+
+var current_inclination = 'level1';
+var current_inclined_subject = 1;
+var inclined_position = inclined[current_inclined_subject][current_inclination];
+
+const svg_inclined = d3.select('#inclined-graph');
+
+svg_inclined.attr('width', cols * cellSize).attr('height', rows * cellSize);
+svg_inclined.selectAll('rect').data(inclined_position.flat()).enter().append('rect')
+    .attr('x', (d, i) => (i % cols) * cellSize)
+    .attr('y', (d, i) => (rows - Math.floor(i / cols) - 1) * cellSize)
+    .attr('width', cellSize)
+    .attr('height', cellSize)
+    .attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+
+
+
+
+
+d3.select('#current_weight_inclined').on('change', function() {
+    current_inclined_subject = weights[this.value];
+    inclined_position = inclined[current_inclined_subject][current_inclination];
+    svg_inclined.selectAll('rect').data(inclined_position.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
+});
+
+d3.select('#current-inclination').on('change', function() {
+    current_inclination = this.value;
+    inclined_position = inclined[current_inclined_subject][current_inclination];
+    svg_inclined.selectAll('rect').data(inclined_position.flat()).attr('fill', d => d3.interpolateRdYlBu(d / 228.721));
 });
